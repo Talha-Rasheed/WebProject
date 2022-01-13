@@ -13,6 +13,8 @@ import { Link } from "react-router-dom";
 import { useHistory } from "react-router";
 import img from "./img.png";
 import mainposter from "./mainposter.png";
+import axios from "axios";
+import AllUser from "./AllUser";
 
 const validation = Yup.object().shape({
   firstName: Yup.string()
@@ -48,6 +50,16 @@ function SignUp({ transferData, data }) {
                     style={{ textDecorationLine: "underline" }}
                   >
                     Home
+                  </h4>
+                </li>
+              </Link>
+              <Link to="AllUser">
+                <li className="nav-item">
+                  <h4
+                    className="navbar-brand"
+                    style={{ textDecorationLine: "underline" }}
+                  >
+                    All Users
                   </h4>
                 </li>
               </Link>
@@ -206,14 +218,13 @@ function SignUp({ transferData, data }) {
       /> */}
 
       <div style={{ display: "flex" }}>
-        
         <img
           src={mainposter}
           style={{
             // backgroundColor: "purple",
             height: "90vh",
             width: "30vw",
-            margin:"auto",
+            margin: "auto",
             borderBottomLeftRadius: "50px",
             borderBottomRightRadius: "50px",
             // border: "2px solid black ",
@@ -252,6 +263,11 @@ function SignUp({ transferData, data }) {
               temp.push(values);
               console.log(values);
               transferData(temp);
+              axios
+                .post("http://localhost:1234/app/SignUp", values)
+                .then((response) => console.log(response.data));
+              //window.location.reload();
+
               history.push("/List");
             }}
           >

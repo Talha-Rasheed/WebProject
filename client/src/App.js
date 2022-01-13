@@ -7,12 +7,20 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useState } from "react";
 import Cart from "./Cart";
 import Order from "./Order";
+import AllUser from "./AllUser";
+import Updation from "./Updation";
 function App() {
   const [data, setData] = useState([]);
   return (
     <Router>
       <Switch>
-      <Route path="/Order">
+        <Route path="/UpdateUser/:id">
+          <Updation />
+        </Route>
+        <Route path="/AllUser">
+          <AllUser />
+        </Route>
+        <Route path="/Order">
           <Order />
         </Route>
         <Route path="/Cart">

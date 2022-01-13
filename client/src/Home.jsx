@@ -22,6 +22,16 @@ function Home() {
                   </h4>
                 </li>
               </Link>
+              <Link to="AllUser">
+                <li className="nav-item">
+                  <h4
+                    className="navbar-brand"
+                    style={{ textDecorationLine: "underline" }}
+                  >
+                    All Users
+                  </h4>
+                </li>
+              </Link>
             </ul>
             <form className="d-flex">
               <input
